@@ -13,6 +13,7 @@ public class OrderDetail {
     private Long menuItemId;
     private Integer quantity;
     private Double price;
+    
 
     // Getters and Setters
     public Long getOrderDetailId() {

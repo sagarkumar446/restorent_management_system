@@ -8,11 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RestController
 public class Spring {
 
-    @GetMapping("check")
-    public String getMethodName() {
-        return "hello";
-    }
-    
+
 
     
 }

@@ -1,9 +1,12 @@
 package edu.qsp.restorent_management_system.model;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 @Entity
 public class Menu {
     @Id
@@ -11,8 +14,18 @@ public class Menu {
     private Long menuItemId;
     private String itemName;
     private String description;
+    public List<OrderDetail> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(List<OrderDetail> orderDetails) {
+        this.orderDetails = orderDetails;
+    }
+
     private Double price;
     private String category;
+    @OneToMany
+    private List<OrderDetail> orderDetails;
 
     // Getters and Setters
     public Long getMenuItemId() {

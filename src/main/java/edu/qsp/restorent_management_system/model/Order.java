@@ -1,9 +1,12 @@
 package edu.qsp.restorent_management_system.model;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 @Entity
 public class Order {
     @Id
@@ -14,6 +17,8 @@ public class Order {
     private String orderDate;
     private String orderTime;
     private Double totalAmount;
+    @OneToMany
+    private List<Payment> payements;
 
     // Getters and Setters
     public Long getOrderId() {
@@ -62,5 +67,13 @@ public class Order {
 
     public void setTotalAmount(Double totalAmount) {
         this.totalAmount = totalAmount;
+    }
+
+    public List<Payment> getPayements() {
+        return payements;
+    }
+
+    public void setPayements(List<Payment> payements) {
+        this.payements = payements;
     }
 }

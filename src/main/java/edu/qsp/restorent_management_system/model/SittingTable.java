@@ -8,7 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 @Entity
-public class Table {
+public class SittingTable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long tableId;

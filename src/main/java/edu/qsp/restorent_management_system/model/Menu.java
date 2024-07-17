@@ -14,22 +14,23 @@ public class Menu {
     private Long menuItemId;
     private String itemName;
     private String description;
+    private Double price;
+    private String category;
+    @OneToMany
+    private List<OrderDetail> orderDetails;
+
+
+
+    // Getters and Setters
+    public Long getMenuItemId() {
+        return menuItemId;
+    }
     public List<OrderDetail> getOrderDetails() {
         return orderDetails;
     }
 
     public void setOrderDetails(List<OrderDetail> orderDetails) {
         this.orderDetails = orderDetails;
-    }
-
-    private Double price;
-    private String category;
-    @OneToMany
-    private List<OrderDetail> orderDetails;
-
-    // Getters and Setters
-    public Long getMenuItemId() {
-        return menuItemId;
     }
 
     public void setMenuItemId(Long menuItemId) {

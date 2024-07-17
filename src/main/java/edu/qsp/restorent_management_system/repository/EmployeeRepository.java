@@ -5,7 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import edu.qsp.restorent_management_system.model.Employee;
 @Repository
-public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
+public interface EmployeeRepository extends JpaRepository<Employee, Integer>
+{
 
 
     

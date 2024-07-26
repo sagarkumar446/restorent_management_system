@@ -1,11 +1,13 @@
 package edu.qsp.restorent_management_system.model;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 @Entity
-public class Payment {
+public class Payment implements Serializable {
     
    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

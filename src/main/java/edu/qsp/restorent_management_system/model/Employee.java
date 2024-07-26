@@ -1,5 +1,6 @@
 package edu.qsp.restorent_management_system.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -7,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
 @Entity
-public class Employee {
+public class Employee implements Serializable{
     @Id
     private int employeeId;
     private String name;

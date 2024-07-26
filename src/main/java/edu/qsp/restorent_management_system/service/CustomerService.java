@@ -9,14 +9,14 @@ import org.springframework.stereotype.Service;
 import edu.qsp.restorent_management_system.model.Menu;
 import edu.qsp.restorent_management_system.model.SittingTable;
 import edu.qsp.restorent_management_system.repository.MenuRepository;
-import edu.qsp.restorent_management_system.repository.SittingTableRespository;
+import edu.qsp.restorent_management_system.repository.SittingTableRepository;
 
 @Service
 public class CustomerService {
     @Autowired
     MenuRepository menurepository;
     @Autowired
-    SittingTableRespository sittingTableRespository;
+    SittingTableRepository sittingTableRespository;
 
     public List<Menu> getMenu(){
         return menurepository.findAll();
@@ -32,4 +32,5 @@ public class CustomerService {
     {
         return sittingTableRespository.findById(id);
     }
+    
 }

@@ -6,13 +6,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 @Entity
 public class Payment implements Serializable {
     
-   @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "payment_seq")
+    @SequenceGenerator(name = "payment_seq", sequenceName = "payment_seq", allocationSize = 10000000)
     private Long paymentId;
-    private Long orderId;
     private String paymentDate;
     private String paymentMethod;
     private Double amountPaid;
@@ -25,15 +26,6 @@ public class Payment implements Serializable {
     public void setPaymentId(Long paymentId) {
         this.paymentId = paymentId;
     }
-
-    public Long getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
-    }
-
     public String getPaymentDate() {
         return paymentDate;
     }

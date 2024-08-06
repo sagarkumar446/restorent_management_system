@@ -6,17 +6,19 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
 @Entity
 public class Reservation implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "reservation_seq")
+    @SequenceGenerator(name = "reservation_seq", sequenceName = "reservation_seq", allocationSize = 500000)
     private Long reservationId;
-    private Long customerId;
-    private Long tableId;
     private String reservationDate;
     private String reservationTime;
-
+    @ManyToOne
+    private SittingTable sitting_table;
     // Getters and Setters
     public Long getReservationId() {
         return reservationId;
@@ -24,22 +26,6 @@ public class Reservation implements Serializable {
 
     public void setReservationId(Long reservationId) {
         this.reservationId = reservationId;
-    }
-
-    public Long getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
-
-    public Long getTableId() {
-        return tableId;
-    }
-
-    public void setTableId(Long tableId) {
-        this.tableId = tableId;
     }
 
     public String getReservationDate() {
@@ -56,6 +42,14 @@ public class Reservation implements Serializable {
 
     public void setReservationTime(String reservationTime) {
         this.reservationTime = reservationTime;
+    }
+
+    public SittingTable getSitting_table() {
+        return sitting_table;
+    }
+    public void setSitting_table(SittingTable sitting_table)
+    {
+        this.sitting_table=sitting_table;
     }
     
 }

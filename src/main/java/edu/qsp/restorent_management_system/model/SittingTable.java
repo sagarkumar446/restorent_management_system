@@ -8,16 +8,18 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.SequenceGenerator;
 @Entity
 public class SittingTable implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "table_seq")
+    @SequenceGenerator(name = "table_seq", sequenceName = "table_seq", allocationSize = 8000000)
     private Long tableId;
     private Integer tableNumber;
     private Integer seatingCapacity;
     private String status;
     @OneToMany
-    private List<Reservation> reservations;
+    private List<Order> orders;
     // Getters and Setters
     public Long getTableId() {
         return tableId;
@@ -51,12 +53,13 @@ public class SittingTable implements Serializable {
         this.status = status;
     }
 
-    public List<Reservation> getReservations() {
-        return reservations;
+    public List<Order> getReservations() {
+        return    orders;
+
     }
 
-    public void setReservations(List<Reservation> reservations) {
-        this.reservations = reservations;
+    public void setReservations(List<Order> orders) {
+        this.orders = orders;
     }
 
 

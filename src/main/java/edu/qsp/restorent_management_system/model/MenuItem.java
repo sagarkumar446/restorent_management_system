@@ -8,10 +8,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.SequenceGenerator;
 @Entity
-public class Menu implements Serializable{
+public class MenuItem implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "menu_seq")
+    @SequenceGenerator(name = "menu_seq", sequenceName = "menu_seq", allocationSize = 1, initialValue=1000)
     private Long menuItemId;
     private String itemName;
     private String description;
@@ -19,19 +21,9 @@ public class Menu implements Serializable{
     private String category;
     @OneToMany
     private List<OrderDetail> orderDetails;
-
-
-
     // Getters and Setters
     public Long getMenuItemId() {
         return menuItemId;
-    }
-    public List<OrderDetail> getOrderDetails() {
-        return orderDetails;
-    }
-
-    public void setOrderDetails(List<OrderDetail> orderDetails) {
-        this.orderDetails = orderDetails;
     }
 
     public void setMenuItemId(Long menuItemId) {
@@ -68,6 +60,14 @@ public class Menu implements Serializable{
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public List<OrderDetail> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(List<OrderDetail> orderDetails) {
+        this.orderDetails = orderDetails;
     }
     
 }

@@ -4,12 +4,17 @@ import java.io.Serializable;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.SequenceGenerator;
 
 @Entity
 public class Employee implements Serializable{
     @Id
+     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employe_seq")
+    @SequenceGenerator(name = "employe_seq", sequenceName = "employe_seq", allocationSize = 1, initialValue=100)
     private int employeeId;
     private String name;
     private String role;

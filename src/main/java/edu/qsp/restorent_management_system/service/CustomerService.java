@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import edu.qsp.restorent_management_system.model.Menu;
+import edu.qsp.restorent_management_system.model.MenuItem;
 import edu.qsp.restorent_management_system.model.SittingTable;
 import edu.qsp.restorent_management_system.repository.MenuRepository;
 import edu.qsp.restorent_management_system.repository.SittingTableRepository;
@@ -18,10 +18,10 @@ public class CustomerService {
     @Autowired
     SittingTableRepository sittingTableRespository;
 
-    public List<Menu> getMenu(){
+    public List<MenuItem> getMenu(){
         return menurepository.findAll();
     }
-    public Optional<Menu> getMenuItem(Integer id){
+    public Optional<MenuItem> getMenuItem(Integer id){
         return  menurepository.findById(id);
     }
     public List<SittingTable> getAllTables()
@@ -30,6 +30,7 @@ public class CustomerService {
     }
     public Optional<SittingTable> getTable(Integer id)
     {
+    
         return sittingTableRespository.findById(id);
     }
     

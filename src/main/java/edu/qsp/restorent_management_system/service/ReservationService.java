@@ -12,12 +12,11 @@ public class ReservationService {
     @Autowired
     SittingTableRepository sittingTable;
 
-    @SuppressWarnings("null")
     public SittingTable reservTable(Integer id)
     {
         Optional<SittingTable> opt= sittingTable.findById(id);
         SittingTable st= opt.isPresent()?opt.get():null;
-        st.setStatus("Reserved");
+      
         System.out.print(st);
         return st;
     }

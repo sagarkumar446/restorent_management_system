@@ -19,7 +19,7 @@ public class SittingTable implements Serializable {
     private Integer seatingCapacity;
     private String status;
     @OneToMany
-    private List<Order> orders;
+    private List<OrderBy> orders;
     // Getters and Setters
     public Long getTableId() {
         return tableId;
@@ -53,12 +53,12 @@ public class SittingTable implements Serializable {
         this.status = status;
     }
 
-    public List<Order> getReservations() {
+    public List<OrderBy> getReservations() {
         return    orders;
 
     }
 
-    public void setReservations(List<Order> orders) {
+    public void setReservations(List<OrderBy> orders) {
         this.orders = orders;
     }
 

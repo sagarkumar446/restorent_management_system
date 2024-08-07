@@ -22,7 +22,7 @@ public class Employee implements Serializable{
     private String email;
     private double salary;
     @OneToMany
-    private List<Order> orders;
+    private List<OrderBy> orders;
     public void setEmployeeId(int employeeId) {
         this.employeeId = employeeId;
     }
@@ -73,11 +73,11 @@ public class Employee implements Serializable{
         return salary;
     }
 
-    public List<Order> getOrders() {
+    public List<OrderBy> getOrders() {
         return orders;
     }
 
-    public void setOrders(List<Order> orders) {
+    public void setOrders(List<OrderBy> orders) {
         this.orders = orders;
     }
 

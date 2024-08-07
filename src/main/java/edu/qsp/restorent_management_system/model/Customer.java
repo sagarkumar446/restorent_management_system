@@ -22,7 +22,7 @@ public class Customer implements Serializable{
     @OneToMany
     private List<Reservation> reservatoin;
     @OneToMany
-    private List<Order> orders;
+    private List<OrderBy> orders;
 
     // Getters and Setters
     public Long getCustomerId() {
@@ -73,11 +73,11 @@ public class Customer implements Serializable{
         this.reservatoin = reservatoin;
     }
 
-    public List<Order> getOrders() {
+    public List<OrderBy> getOrders() {
         return orders;
     }
 
-    public void setOrders(List<Order> orders) {
+    public void setOrders(List<OrderBy> orders) {
         this.orders = orders;
     }
 }

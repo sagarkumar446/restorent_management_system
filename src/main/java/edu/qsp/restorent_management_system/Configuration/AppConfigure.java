@@ -42,7 +42,10 @@ public class AppConfigure {
     public ResponseStructure<Customer> responseStructureCustomer(){
         return  new ResponseStructure<>();
     }
-    
+    @Bean
+    public ResponseStructure<List<Customer>> responseStructureAllCutomer(){
+        return  new ResponseStructure<>();
+    }
     
     // Additional bean definitions can be added here
 }

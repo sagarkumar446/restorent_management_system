@@ -26,6 +26,9 @@ public class CustomerService {
     public List<MenuItem> getMenu(){
         return menurepository.findAll();
     }
+    public List<Customer> getAllCustomers(){
+        return customerRepositroy.findAll();
+    }
     public Optional<MenuItem> getMenuItem(Integer id){
         return  menurepository.findById(id);
     }

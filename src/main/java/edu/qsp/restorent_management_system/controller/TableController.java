@@ -27,7 +27,7 @@ public class TableController {
     ResponseStructure<List<SittingTable>> responseStructure_sittingTables;
     @Autowired
     ResponseStructure<SittingTable> responseStructure_sittingTable;
-    @GetMapping("")
+    @GetMapping("allTables")
     public ResponseEntity<ResponseStructure<List<SittingTable>>> viewAllTables() {
      
         if(customerService.getAllTables()!=null)

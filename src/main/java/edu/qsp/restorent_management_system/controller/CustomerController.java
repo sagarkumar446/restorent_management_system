@@ -8,12 +8,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.qsp.restorent_management_system.Configuration.ResponseStructure;
 import edu.qsp.restorent_management_system.model.Customer;
 import edu.qsp.restorent_management_system.model.MenuItem;
+import edu.qsp.restorent_management_system.model.SittingTable;
 import edu.qsp.restorent_management_system.service.CustomerService;
+
 
 
 
@@ -25,7 +28,11 @@ import edu.qsp.restorent_management_system.service.CustomerService;
     ResponseStructure<List<MenuItem>> responseStructureMenu;
     @Autowired
     ResponseStructure<Customer> responseStructureCustomer;
-    @GetMapping("menu_item")
+    @Autowired
+    ResponseStructure<List<Customer>> responseStructureAllCusotmer;
+    @Autowired
+    ResponseStructure<List<SittingTable>> responseStructureSittingTable;
+    @GetMapping("allMenuItems")
     public ResponseEntity<ResponseStructure<List<MenuItem>>> ViewAllMenusItems() {
         if(customerService.getMenu()!=null)
         { 
@@ -44,11 +51,30 @@ import edu.qsp.restorent_management_system.service.CustomerService;
 
         }
     }
+    @GetMapping("getAllTables")
+    public ResponseEntity<ResponseStructure<List<SittingTable>>> getAllTables()
+    {
+        
+        responseStructureSittingTable.setData(customerService.getAllTables());
+        responseStructureSittingTable.setStatusCode(200);
+        return  new ResponseEntity<>(responseStructureSittingTable, HttpStatus.ACCEPTED);
+    }
+
     @PostMapping("table_reserve/{customer_id}/{table_id}")
     public String postMethodName(@PathVariable Integer customer_id,@PathVariable Integer table_id) {
         
         
         return " "+customer_id;
+    }
+    @GetMapping("getAllCustomer")
+    public ResponseEntity< ResponseStructure< List<Customer>>> getAllCustomers()
+    {
+        responseStructureAllCusotmer.setData(customerService.getAllCustomers());
+        responseStructureAllCusotmer.setMessage("data fetch sucussfullty");
+        return  new ResponseEntity<> (responseStructureAllCusotmer, HttpStatus.ACCEPTED);
+    }
+    public String getMethodName(@RequestParam String param) {
+        return new String();
     }
     @PostMapping("add_customer")
     public ResponseEntity<ResponseStructure<Customer>> postMethodName(@RequestBody Customer entity) {

@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 @Entity
@@ -19,9 +20,21 @@ public class MenuItem implements Serializable{
     private String description;
     private Double price;
     private String category;
+    private Boolean veg;
+    @Lob
+    private byte image[];
+ 
+
     @OneToMany
     private List<OrderDetail> orderDetails;
     // Getters and Setters
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
     public Long getMenuItemId() {
         return menuItemId;
     }
@@ -68,6 +81,14 @@ public class MenuItem implements Serializable{
 
     public void setOrderDetails(List<OrderDetail> orderDetails) {
         this.orderDetails = orderDetails;
+    }
+
+    public Boolean getVeg() {
+        return veg;
+    }
+
+    public void setVeg(Boolean veg) {
+        this.veg = veg;
     }
     
 }

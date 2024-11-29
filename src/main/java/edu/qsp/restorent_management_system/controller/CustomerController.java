@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.qsp.restorent_management_system.Configuration.ResponseStructure;
@@ -66,17 +65,14 @@ import edu.qsp.restorent_management_system.service.CustomerService;
         
         return " "+customer_id;
     }
-    @GetMapping("/getAllCustomer")
-    public ResponseEntity< ResponseStructure< List<Customer>>> getAllCustomers()
-    {
-        responseStructureAllCusotmer.setData(customerService.getAllCustomers());
-        responseStructureAllCusotmer.setMessage("data fetch sucussfullty");
-        return  new ResponseEntity<> (responseStructureAllCusotmer, HttpStatus.ACCEPTED);
-    }
-    public String getMethodName(@RequestParam String param) {
-        return new String();
-    }
-    @PostMapping("/add_customer")
+    // @GetMapping("/getAllCustomer")
+    // public ResponseEntity< ResponseStructure< List<Customer>>> getAllCustomers()
+    // {
+    //     responseStructureAllCusotmer.setData(customerService.getAllCustomers());
+    //     responseStructureAllCusotmer.setMessage("data fetch sucussfullty");
+    //     return  new ResponseEntity<> (responseStructureAllCusotmer, HttpStatus.ACCEPTED);
+    // }
+    @PostMapping("/add_customer") 
     public ResponseEntity<ResponseStructure<Customer>> postMethodName(@RequestBody Customer entity) {
 
          if(customerService.setCutomer(entity))

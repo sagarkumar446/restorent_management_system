@@ -46,6 +46,10 @@ public class AppConfigure {
     public ResponseStructure<List<Customer>> responseStructureAllCutomer(){
         return  new ResponseStructure<>();
     }
+    @Bean 
+    public ResponseStructure<MenuItem> responseStructureMenuItem(){
+        return new ResponseStructure<>();
+    }
     
     // Additional bean definitions can be added here
 }

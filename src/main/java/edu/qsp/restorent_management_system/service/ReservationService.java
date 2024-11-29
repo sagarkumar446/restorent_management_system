@@ -16,8 +16,6 @@ public class ReservationService {
     {
         Optional<SittingTable> opt= sittingTable.findById(id);
         SittingTable st= opt.isPresent()?opt.get():null;
-      
-        System.out.print(st);
         return st;
     }
 

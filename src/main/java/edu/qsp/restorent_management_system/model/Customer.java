@@ -20,7 +20,7 @@ public class Customer implements Serializable{
     private String email;
     private String address;
     @OneToMany
-    private List<Reservation> reservatoin;
+    private List<Reservation> reservation;
     @OneToMany
     private List<OrderBy> orders;
 
@@ -65,12 +65,12 @@ public class Customer implements Serializable{
         this.address = address;
     }
 
-    public List<Reservation> getReservatoin() {
-        return reservatoin;
+    public List<Reservation> getreservation() {
+        return reservation;
     }
 
-    public void setReservatoin(List<Reservation> reservatoin) {
-        this.reservatoin = reservatoin;
+    public void setreservation(List<Reservation> reservation) {
+        this.reservation = reservation;
     }
 
     public List<OrderBy> getOrders() {

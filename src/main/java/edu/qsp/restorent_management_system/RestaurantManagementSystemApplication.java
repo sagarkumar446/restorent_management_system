@@ -9,7 +9,4 @@ public class RestaurantManagementSystemApplication  {
         SpringApplication.run(RestaurantManagementSystemApplication.class, args);
         System.err.println("i am in spring boot");
     }
-
- 
-
 }

@@ -12,9 +12,9 @@ public class EmailService {
     
     @Autowired
     private JavaMailSender mailSender;
-    public void sendSimpleEmail(String to) {
+    public int sendSimpleEmail(String to) {
          Random random = new Random();
-         int otp=100+random.nextInt(9999);
+        int otp=random.nextInt(1000,9999);
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(to);
         message.setSubject("testing");
@@ -22,7 +22,7 @@ public class EmailService {
                         "\r\n" + //
                         "Thank you for signing up with TechNest! To complete your signup process, please use the verification code below:\r\n" + //
                         "\r\n" + //
-                        "**"+otp+"**\r\n" + //
+                        "\b"+otp+"\b\r\n" + //
                         "\r\n" + //
                         "This code is valid for the next 10 minutes. Please do not share this code with anyone.\r\n" + //
                         "\r\n" + //
@@ -35,7 +35,7 @@ public class EmailService {
         message.setFrom("sagat56780@gmail.com");
 
         mailSender.send(message);
-        System.out.println("Email sent successfully!");
+        return  otp;
     }
     
 }

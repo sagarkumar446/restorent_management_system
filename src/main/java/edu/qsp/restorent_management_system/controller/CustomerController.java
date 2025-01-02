@@ -28,8 +28,6 @@ import edu.qsp.restorent_management_system.service.CustomerService;
     @Autowired
     ResponseStructure<Customer> responseStructureCustomer;
     @Autowired
-    ResponseStructure<List<Customer>> responseStructureAllCusotmer;
-    @Autowired
     ResponseStructure<List<SittingTable>> responseStructureSittingTable;
     @GetMapping("/getAllMenuItems")
     public ResponseEntity<ResponseStructure<List<MenuItem>>> ViewAllMenusItems() {

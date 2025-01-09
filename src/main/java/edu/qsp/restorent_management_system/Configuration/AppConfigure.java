@@ -50,6 +50,10 @@ public class AppConfigure {
     public ResponseStructure<MenuItem> responseStructureMenuItem(){
         return new ResponseStructure<>();
     }
+    @Bean
+    public ResponseStructure<String> responseStructureString(){
+        return new ResponseStructure<>();
+    }
     
     // Additional bean definitions can be added here
 }

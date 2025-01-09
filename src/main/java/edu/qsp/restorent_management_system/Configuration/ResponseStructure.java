@@ -22,6 +22,7 @@ public class ResponseStructure<T> {
      * This could be a success message, error description, or other relevant details.
      */
     private String message;
+    private String type;
 
     /**
      * The actual data being returned in the response.
@@ -81,5 +82,11 @@ public class ResponseStructure<T> {
      */
     public void setData(T data) {
         this.data = data;
+    }
+    public void setType(String type) {
+       this.type=type;
+    }
+    public String getType() {
+        return type;
     }
 }

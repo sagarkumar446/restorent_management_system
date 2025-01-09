@@ -25,7 +25,6 @@ public class EmployeeService {
             menuItem.setImage(image.getBytes());
             menuRepository.save(menuItem);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 

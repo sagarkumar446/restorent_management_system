@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import edu.qsp.restorent_management_system.model.OrderBy;
 
-public interface OrderRepositroy extends JpaRepository<OrderBy, Integer> {
-    
+public interface OrderRepository extends JpaRepository<OrderBy, Integer> {
+
 }

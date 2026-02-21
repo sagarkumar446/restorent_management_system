@@ -6,21 +6,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import edu.qsp.restorent_management_system.model.Employee;
 import edu.qsp.restorent_management_system.model.MenuItem;
+import edu.qsp.restorent_management_system.repository.EmployeeRepository;
 import edu.qsp.restorent_management_system.repository.MenuRepository;
-
 
 @Service
 public class EmployeeService {
     @Autowired
     MenuRepository menuRepository;
-    public  MenuItem addMenuItem(String itemName, String description, Double price,String category,Boolean veg, MultipartFile image){
-         MenuItem menuItem= new MenuItem();
-         menuItem.setCategory(category);
-         menuItem.setDescription(description);
-         menuItem.setItemName(itemName);
-         menuItem.setPrice(price);
-         menuItem.setVeg(veg);
+
+    @Autowired
+    EmployeeRepository employeeRepository;
+
+    public Employee login(String email, String password) {
+        Employee employee = employeeRepository.findByEmail(email);
+        if (employee != null && employee.getPassword().equals(password)) {
+            return employee;
+        }
+        return null;
+    }
+
+    public Employee getByEmail(String email) {
+        return employeeRepository.findByEmail(email);
+    }
+
+    public MenuItem addMenuItem(String itemName, String description, Double price, String category, Boolean veg,
+            MultipartFile image) {
+        MenuItem menuItem = new MenuItem();
+        menuItem.setCategory(category);
+        menuItem.setDescription(description);
+        menuItem.setItemName(itemName);
+        menuItem.setPrice(price);
+        menuItem.setVeg(veg);
         try {
             menuItem.setImage(image.getBytes());
             menuRepository.save(menuItem);
@@ -29,18 +47,8 @@ public class EmployeeService {
             e.printStackTrace();
         }
 
+        return menuItem;
 
-         
-         return menuItem;
-          
     }
 
-
-
-
-
-
-
-
-    
 }

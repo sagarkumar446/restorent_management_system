@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import edu.qsp.restorent_management_system.model.Customer;
 import edu.qsp.restorent_management_system.model.MenuItem;
 import edu.qsp.restorent_management_system.model.SittingTable;
-import edu.qsp.restorent_management_system.repository.CustomerRepositroy;
+import edu.qsp.restorent_management_system.repository.CustomerRepository;
 import edu.qsp.restorent_management_system.repository.MenuRepository;
 import edu.qsp.restorent_management_system.repository.SittingTableRepository;
 
@@ -20,33 +20,33 @@ public class CustomerService {
     @Autowired
     SittingTableRepository sittingTableRespository;
     @Autowired
-    CustomerRepositroy customerRepositroy;
+    CustomerRepository customerRepository;
 
-
-    public List<MenuItem> getMenu(){
+    public List<MenuItem> getMenu() {
         return menurepository.findAll();
     }
-    public List<Customer> getAllCustomers(){
-        return customerRepositroy.findAll();
+
+    public List<Customer> getAllCustomers() {
+        return customerRepository.findAll();
     }
-    public Optional<MenuItem> getMenuItem(Integer id){
-        return  menurepository.findById(id);
+
+    public Optional<MenuItem> getMenuItem(Integer id) {
+        return menurepository.findById(id);
     }
-    public List<SittingTable> getAllTables()
-    {
+
+    public List<SittingTable> getAllTables() {
         return sittingTableRespository.findAll();
     }
-    public Optional<SittingTable> getTable(Integer id)
-    {
-    
+
+    public Optional<SittingTable> getTable(Integer id) {
+
         return sittingTableRespository.findById(id);
     }
-    public Boolean setCutomer(Customer customer)
-    {
+
+    public Boolean setCutomer(Customer customer) {
         try {
-            customerRepositroy.save(customer);
-            
-            
+            customerRepository.save(customer);
+
         } catch (Exception e) {
 
             System.err.println(e);
@@ -54,8 +54,5 @@ public class CustomerService {
         }
         return true;
     }
-   
-   
-    
-    
+
 }

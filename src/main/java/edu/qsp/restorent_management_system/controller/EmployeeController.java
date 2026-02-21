@@ -13,40 +13,58 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import edu.qsp.restorent_management_system.Configuration.ResponseStructure;
+import edu.qsp.restorent_management_system.config.ResponseStructure;
 import edu.qsp.restorent_management_system.model.Customer;
+import edu.qsp.restorent_management_system.model.Employee;
 import edu.qsp.restorent_management_system.model.MenuItem;
 import edu.qsp.restorent_management_system.service.EmployeeService;
-
-
-
 
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins = "http://localhost:3000")
-public class EmployeeController {   
+public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
     @Autowired
     ResponseStructure<MenuItem> responseStructureMenuItem;
     @Autowired
     ResponseStructure<List<Customer>> responseStructureCustomers;
-    @PostMapping("/addMenuItem")
+    @Autowired
+    ResponseStructure<Employee> responseStructureEmployee;
+
+    @PostMapping("/menu-items")
     public ResponseEntity<ResponseStructure<MenuItem>> addMenuItem(
-        @RequestParam("itemName") String itemName,
-        @RequestParam("description") String description,
-        @RequestParam("price") Double price,
-        @RequestParam("category") String category,
-        @RequestParam("veg") Boolean veg,
-        @RequestParam("image") MultipartFile image){
-        responseStructureMenuItem.setData(employeeService.addMenuItem( itemName,description,price, category,veg,image));
-        return new  ResponseEntity<>(responseStructureMenuItem, HttpStatus.ACCEPTED);
+            @RequestParam("itemName") String itemName,
+            @RequestParam("description") String description,
+            @RequestParam("price") Double price,
+            @RequestParam("category") String category,
+            @RequestParam("veg") Boolean veg,
+            @RequestParam("image") MultipartFile image) {
+        responseStructureMenuItem
+                .setData(employeeService.addMenuItem(itemName, description, price, category, veg, image));
+        return new ResponseEntity<>(responseStructureMenuItem, HttpStatus.ACCEPTED);
     }
-    @GetMapping("/getAllCustomers")
-    public ResponseEntity<ResponseStructure<List<Customer>>> getALlCustomers (@RequestParam String param) {
 
+    @GetMapping("/customers")
+    public ResponseEntity<ResponseStructure<List<Customer>>> getAllCustomers(@RequestParam String param) {
 
-        return new ResponseEntity<>(responseStructureCustomers,HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(responseStructureCustomers, HttpStatus.ACCEPTED);
+    }
+
+    @PostMapping("/employee/login")
+    public ResponseEntity<ResponseStructure<Employee>> login(@RequestParam String email,
+            @RequestParam String password) {
+        Employee employee = employeeService.login(email, password);
+        if (employee != null) {
+            responseStructureEmployee.setData(employee);
+            responseStructureEmployee.setMessage("Login successful");
+            responseStructureEmployee.setStatusCode(HttpStatus.OK.value());
+            return new ResponseEntity<>(responseStructureEmployee, HttpStatus.OK);
+        } else {
+            responseStructureEmployee.setData(null);
+            responseStructureEmployee.setMessage("Invalid email or password");
+            responseStructureEmployee.setStatusCode(HttpStatus.UNAUTHORIZED.value());
+            return new ResponseEntity<>(responseStructureEmployee, HttpStatus.UNAUTHORIZED);
+        }
     }
 }
-    

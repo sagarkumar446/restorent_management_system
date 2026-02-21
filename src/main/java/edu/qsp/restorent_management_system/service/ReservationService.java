@@ -7,17 +7,16 @@ import org.springframework.stereotype.Service;
 
 import edu.qsp.restorent_management_system.model.SittingTable;
 import edu.qsp.restorent_management_system.repository.SittingTableRepository;
+
 @Service
 public class ReservationService {
     @Autowired
     SittingTableRepository sittingTable;
 
-    public SittingTable reservTable(Integer id)
-    {
-        Optional<SittingTable> opt= sittingTable.findById(id);
-        SittingTable st= opt.isPresent()?opt.get():null;
+    public SittingTable reserveTable(Integer id) {
+        Optional<SittingTable> opt = sittingTable.findById(id);
+        SittingTable st = opt.isPresent() ? opt.get() : null;
         return st;
     }
 
-    
 }

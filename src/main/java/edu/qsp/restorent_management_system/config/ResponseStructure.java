@@ -1,4 +1,4 @@
-package edu.qsp.restorent_management_system.Configuration;
+package edu.qsp.restorent_management_system.config;
 
 /**
  * A generic class to represent the structure of API responses.
@@ -19,7 +19,8 @@ public class ResponseStructure<T> {
 
     /**
      * A message providing additional information about the response.
-     * This could be a success message, error description, or other relevant details.
+     * This could be a success message, error description, or other relevant
+     * details.
      */
     private String message;
 

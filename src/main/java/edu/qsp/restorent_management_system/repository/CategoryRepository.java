@@ -3,9 +3,9 @@ package edu.qsp.restorent_management_system.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import edu.qsp.restorent_management_system.model.Employee;
+import edu.qsp.restorent_management_system.model.Category;
 
 @Repository
-public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
-    Employee findByEmail(String email);
+public interface CategoryRepository extends JpaRepository<Category, Long> {
+    boolean existsByName(String name);
 }

@@ -1,4 +1,4 @@
-package edu.qsp.restorent_management_system.Configuration;
+package edu.qsp.restorent_management_system.config;
 
 import java.util.List;
 
@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import edu.qsp.restorent_management_system.model.Customer;
+import edu.qsp.restorent_management_system.model.Employee;
 import edu.qsp.restorent_management_system.model.MenuItem;
 import edu.qsp.restorent_management_system.model.OrderBy;
 import edu.qsp.restorent_management_system.model.SittingTable;
@@ -16,40 +17,51 @@ import edu.qsp.restorent_management_system.model.SittingTable;
 @Configuration
 public class AppConfigure {
 
+    @Bean
+    public ResponseStructure<Employee> responseStructureEmployee() {
+        return new ResponseStructure<>();
+    }
 
     @Bean
     public ResponseStructure<List<MenuItem>> responseStructureMenu() {
         return new ResponseStructure<>();
     }
+
     @Bean
-    public ResponseStructure<List<SittingTable>> responseStructureTables(){
+    public ResponseStructure<List<SittingTable>> responseStructureTables() {
         return new ResponseStructure<>();
     }
+
     @Bean
-    public ResponseStructure<SittingTable> responseStructureTable(){
+    public ResponseStructure<SittingTable> responseStructureTable() {
         return new ResponseStructure<>();
     }
+
     @Bean
-    public ResponseStructure<Integer> responseStructureInteger(){
+    public ResponseStructure<Integer> responseStructureInteger() {
         return new ResponseStructure<>();
     }
+
     @Bean
-    public ResponseStructure<OrderBy> responseStructureOrder(){
+    public ResponseStructure<OrderBy> responseStructureOrder() {
         return new ResponseStructure<>();
-        
+
     }
-    @Bean 
-    public ResponseStructure<Customer> responseStructureCustomer(){
-        return  new ResponseStructure<>();
-    }
+
     @Bean
-    public ResponseStructure<List<Customer>> responseStructureAllCutomer(){
-        return  new ResponseStructure<>();
-    }
-    @Bean 
-    public ResponseStructure<MenuItem> responseStructureMenuItem(){
+    public ResponseStructure<Customer> responseStructureCustomer() {
         return new ResponseStructure<>();
     }
-    
+
+    @Bean
+    public ResponseStructure<List<Customer>> responseStructureAllCutomer() {
+        return new ResponseStructure<>();
+    }
+
+    @Bean
+    public ResponseStructure<MenuItem> responseStructureMenuItem() {
+        return new ResponseStructure<>();
+    }
+
     // Additional bean definitions can be added here
 }

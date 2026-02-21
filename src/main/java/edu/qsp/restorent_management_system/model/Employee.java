@@ -11,18 +11,28 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 
 @Entity
-public class Employee implements Serializable{
+public class Employee implements Serializable {
     @Id
-     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employe_seq")
-    @SequenceGenerator(name = "employe_seq", sequenceName = "employe_seq", allocationSize = 1, initialValue=100)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employe_seq")
+    @SequenceGenerator(name = "employe_seq", sequenceName = "employe_seq", allocationSize = 1, initialValue = 100)
     private int employeeId;
     private String name;
     private String role;
     private long contact;
     private String email;
+    private String password;
     private double salary;
     @OneToMany
     private List<OrderBy> orders;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public void setEmployeeId(int employeeId) {
         this.employeeId = employeeId;
     }
@@ -46,8 +56,6 @@ public class Employee implements Serializable{
     public void setSalary(double salary) {
         this.salary = salary;
     }
-
- 
 
     public int getEmployeeId() {
         return employeeId;
@@ -81,5 +89,4 @@ public class Employee implements Serializable{
         this.orders = orders;
     }
 
-    
 }

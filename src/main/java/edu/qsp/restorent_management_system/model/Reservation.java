@@ -17,8 +17,13 @@ public class Reservation implements Serializable {
     private Long reservationId;
     private String reservationDate;
     private String reservationTime;
+    private Integer numberOfGuests;
+    private String specialRequests;
+    private String reservationStatus = "CONFIRMED"; // CONFIRMED, CANCELLED, COMPLETED
+    
     @ManyToOne
     private SittingTable sitting_table;
+    
     // Getters and Setters
     public Long getReservationId() {
         return reservationId;
@@ -44,12 +49,35 @@ public class Reservation implements Serializable {
         this.reservationTime = reservationTime;
     }
 
+    public Integer getNumberOfGuests() {
+        return numberOfGuests;
+    }
+
+    public void setNumberOfGuests(Integer numberOfGuests) {
+        this.numberOfGuests = numberOfGuests;
+    }
+
+    public String getSpecialRequests() {
+        return specialRequests;
+    }
+
+    public void setSpecialRequests(String specialRequests) {
+        this.specialRequests = specialRequests;
+    }
+
+    public String getReservationStatus() {
+        return reservationStatus;
+    }
+
+    public void setReservationStatus(String reservationStatus) {
+        this.reservationStatus = reservationStatus;
+    }
+
     public SittingTable getSitting_table() {
         return sitting_table;
     }
-    public void setSitting_table(SittingTable sitting_table)
-    {
-        this.sitting_table=sitting_table;
+
+    public void setSitting_table(SittingTable sitting_table) {
+        this.sitting_table = sitting_table;
     }
-    
 }

@@ -16,6 +16,7 @@ public class Payment implements Serializable {
     private Long paymentId;
     private String paymentDate;
     private String paymentMethod;
+    private String transactionReference;
     private Double amountPaid;
 
     // Getters and Setters
@@ -40,6 +41,14 @@ public class Payment implements Serializable {
 
     public void setPaymentMethod(String paymentMethod) {
         this.paymentMethod = paymentMethod;
+    }
+
+    public String getTransactionReference() {
+        return transactionReference;
+    }
+
+    public void setTransactionReference(String transactionReference) {
+        this.transactionReference = transactionReference;
     }
 
     public Double getAmountPaid() {

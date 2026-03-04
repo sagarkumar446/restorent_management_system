@@ -3,6 +3,8 @@ package edu.qsp.restorent_management_system.model;
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,9 +21,16 @@ public class Customer implements Serializable{
     private String contactNumber;
     private String email;
     private String address;
+    private String password;
+    private String registrationDate;
+    private String lastLoginDate;
+    private Boolean isActive = true;
+    private Double loyaltyPoints = 0.0;
     @OneToMany
+    @JsonBackReference
     private List<Reservation> reservation;
     @OneToMany
+    @JsonBackReference
     private List<OrderBy> orders;
 
     // Getters and Setters
@@ -65,6 +74,46 @@ public class Customer implements Serializable{
         this.address = address;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(String registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+
+    public String getLastLoginDate() {
+        return lastLoginDate;
+    }
+
+    public void setLastLoginDate(String lastLoginDate) {
+        this.lastLoginDate = lastLoginDate;
+    }
+
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Boolean isActive) {
+        this.isActive = isActive;
+    }
+
+    public Double getLoyaltyPoints() {
+        return loyaltyPoints;
+    }
+
+    public void setLoyaltyPoints(Double loyaltyPoints) {
+        this.loyaltyPoints = loyaltyPoints;
+    }
+
     public List<Reservation> getreservation() {
         return reservation;
     }
@@ -81,6 +130,3 @@ public class Customer implements Serializable{
         this.orders = orders;
     }
 }
-
-    
-

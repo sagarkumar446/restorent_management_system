@@ -13,7 +13,7 @@ public class ReservationService {
     @Autowired
     SittingTableRepository sittingTable;
 
-    public SittingTable reserveTable(Integer id) {
+    public SittingTable reserveTable(Long id) {
         Optional<SittingTable> opt = sittingTable.findById(id);
         SittingTable st = opt.isPresent() ? opt.get() : null;
         return st;

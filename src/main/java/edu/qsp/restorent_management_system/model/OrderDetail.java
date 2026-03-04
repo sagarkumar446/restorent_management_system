@@ -6,15 +6,20 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 @Entity
 public class OrderDetail implements Serializable {
     @Id
-
- @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orderDetail_seq")
-    @SequenceGenerator(name = "orderDetail_seq", sequenceName = "orderDetail_seq", allocationSize = 1, initialValue=100000)    private Long orderDetailId;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orderDetail_seq")
+    @SequenceGenerator(name = "orderDetail_seq", sequenceName = "orderDetail_seq", allocationSize = 1, initialValue=100000)    
+    private Long orderDetailId;
     private Integer quantity;
-    private Double price;
+    private Double unitPrice;
+    
+    @ManyToOne
+    private MenuItem MenuItem;
+
     // Getters and Setters
     public Long getOrderDetailId() {
         return orderDetailId;
@@ -32,12 +37,19 @@ public class OrderDetail implements Serializable {
         this.quantity = quantity;
     }
 
-    public Double getPrice() {
-        return price;
+    public Double getUnitPrice() {
+        return unitPrice;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
-       }
-    
+    public void setUnitPrice(Double unitPrice) {
+        this.unitPrice = unitPrice;
+    }
+
+    public MenuItem getMenuItem() {
+        return MenuItem;
+    }
+
+    public void setMenuItem(MenuItem MenuItem) {
+        this.MenuItem = MenuItem;
+    }
 }

@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.qsp.restorent_management_system.config.ResponseStructure;
 import edu.qsp.restorent_management_system.dto.ApiResponse;
 import edu.qsp.restorent_management_system.dto.CustomerLoginRequest;
 import edu.qsp.restorent_management_system.dto.CustomerLoginResponse;

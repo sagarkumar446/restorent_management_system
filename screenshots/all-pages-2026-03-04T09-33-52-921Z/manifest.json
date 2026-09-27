@@ -1,0 +1,112 @@
+{
+  "createdAt": "2026-03-04T09:35:05.643Z",
+  "outputDirectory": "/home/sagar/project/restorent_management_system/screenshots/all-pages-2026-03-04T09-33-52-921Z",
+  "totalScreenshots": 20,
+  "customerDemoCredentials": {
+    "email": "demo.screenshots.1772616832924@mail.com",
+    "password": "Demo@1234"
+  },
+  "adminLoginVerified": true,
+  "captures": [
+    {
+      "route": "/",
+      "fileName": "01-home.png",
+      "outPath": "/home/sagar/project/restorent_management_system/screenshots/all-pages-2026-03-04T09-33-52-921Z/01-home.png"
+    },
+    {
+      "route": "/menu",
+      "fileName": "02-menu.png",
+      "outPath": "/home/sagar/project/restorent_management_system/screenshots/all-pages-2026-03-04T09-33-52-921Z/02-menu.png"
+    },
+    {
+      "route": "/dine",
+      "fileName": "03-dine-guest.png",
+      "outPath": "/home/sagar/project/restorent_management_system/screenshots/all-pages-2026-03-04T09-33-52-921Z/03-dine-guest.png"
+    },
+    {
+      "route": "/sign-in",
+      "fileName": "04-customer-login.png",
+      "outPath": "/home/sagar/project/restorent_management_system/screenshots/all-pages-2026-03-04T09-33-52-921Z/04-customer-login.png"
+    },
+    {
+      "route": "/sign-up",
+      "fileName": "05-signup-email.png",
+      "outPath": "/home/sagar/project/restorent_management_system/screenshots/all-pages-2026-03-04T09-33-52-921Z/05-signup-email.png"
+    },
+    {
+      "route": "/sign-up/otp",
+      "fileName": "06-signup-otp.png",
+      "outPath": "/home/sagar/project/restorent_management_system/screenshots/all-pages-2026-03-04T09-33-52-921Z/06-signup-otp.png"
+    },
+    {
+      "route": "/new-customer",
+      "fileName": "07-new-customer.png",
+      "outPath": "/home/sagar/project/restorent_management_system/screenshots/all-pages-2026-03-04T09-33-52-921Z/07-new-customer.png"
+    },
+    {
+      "route": "/cart",
+      "fileName": "08-cart-guest.png",
+      "outPath": "/home/sagar/project/restorent_management_system/screenshots/all-pages-2026-03-04T09-33-52-921Z/08-cart-guest.png"
+    },
+    {
+      "route": "/admin/login",
+      "fileName": "09-admin-login.png",
+      "outPath": "/home/sagar/project/restorent_management_system/screenshots/all-pages-2026-03-04T09-33-52-921Z/09-admin-login.png"
+    },
+    {
+      "route": "/",
+      "fileName": "10-home-customer.png",
+      "outPath": "/home/sagar/project/restorent_management_system/screenshots/all-pages-2026-03-04T09-33-52-921Z/10-home-customer.png"
+    },
+    {
+      "route": "/orders",
+      "fileName": "11-orders-customer.png",
+      "outPath": "/home/sagar/project/restorent_management_system/screenshots/all-pages-2026-03-04T09-33-52-921Z/11-orders-customer.png"
+    },
+    {
+      "route": "/dine",
+      "fileName": "12-dine-customer.png",
+      "outPath": "/home/sagar/project/restorent_management_system/screenshots/all-pages-2026-03-04T09-33-52-921Z/12-dine-customer.png"
+    },
+    {
+      "route": "/cart",
+      "fileName": "13-cart-customer.png",
+      "outPath": "/home/sagar/project/restorent_management_system/screenshots/all-pages-2026-03-04T09-33-52-921Z/13-cart-customer.png"
+    },
+    {
+      "route": "/admin/dashboard",
+      "fileName": "14-admin-dashboard.png",
+      "outPath": "/home/sagar/project/restorent_management_system/screenshots/all-pages-2026-03-04T09-33-52-921Z/14-admin-dashboard.png"
+    },
+    {
+      "route": "/admin/add-food-item",
+      "fileName": "15-admin-add-food-item.png",
+      "outPath": "/home/sagar/project/restorent_management_system/screenshots/all-pages-2026-03-04T09-33-52-921Z/15-admin-add-food-item.png"
+    },
+    {
+      "route": "/admin/remove-food-item",
+      "fileName": "16-admin-remove-food-item.png",
+      "outPath": "/home/sagar/project/restorent_management_system/screenshots/all-pages-2026-03-04T09-33-52-921Z/16-admin-remove-food-item.png"
+    },
+    {
+      "route": "/admin/categories",
+      "fileName": "17-admin-categories.png",
+      "outPath": "/home/sagar/project/restorent_management_system/screenshots/all-pages-2026-03-04T09-33-52-921Z/17-admin-categories.png"
+    },
+    {
+      "route": "/admin/payment-settings",
+      "fileName": "18-admin-payment-settings.png",
+      "outPath": "/home/sagar/project/restorent_management_system/screenshots/all-pages-2026-03-04T09-33-52-921Z/18-admin-payment-settings.png"
+    },
+    {
+      "route": "/admin/customers",
+      "fileName": "19-admin-customers.png",
+      "outPath": "/home/sagar/project/restorent_management_system/screenshots/all-pages-2026-03-04T09-33-52-921Z/19-admin-customers.png"
+    },
+    {
+      "route": "/admin/dine",
+      "fileName": "20-admin-dine.png",
+      "outPath": "/home/sagar/project/restorent_management_system/screenshots/all-pages-2026-03-04T09-33-52-921Z/20-admin-dine.png"
+    }
+  ]
+}

@@ -1,13 +1,32 @@
 package edu.qsp.restorent_management_system;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.WebDriver;
 
-@SpringBootTest
-class RestorentManagementSystemApplicationTests {
+import edu.qsp.restorent_management_system.driver.DriverFactory;
+import edu.qsp.restorent_management_system.utils.ConfigReader;
 
-	@Test
-	void contextLoads() {
-	}
+public class RestorentManagementSystemApplicationTests {
+    protected WebDriver driver;
+    @BeforeEach
+    public void setUp() {
+
+        driver = DriverFactory.createDriver();
+
+        driver.manage().window().maximize();
+
+        driver.get(
+                ConfigReader.getProperty("baseUrl")
+        );
+    }
+    @AfterEach
+    public void tearDown() {
+
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+
 
 }
